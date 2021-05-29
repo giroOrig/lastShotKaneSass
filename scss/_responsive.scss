@@ -1,0 +1,125 @@
+@import "tamanios";
+@import "colores";
+@import "fuentes";
+
+$grid:grid;
+$flex:flex;
+body {margin:0;}
+.grid{
+    display:$grid;
+    grid-template-areas:
+    "header"
+    "titulo"
+    "contenido"
+    "footer";
+    grid-template-columns: $full-width;
+    grid-template-rows: 200px 100px $half-width 20%;
+    @media only screen and(max-width:$vista-mobile){
+    display:$grid;
+    grid-template-areas:
+    "header"
+    "titulo"
+    "contenido"
+    "footer";
+    grid-template-columns: $full-width;
+    grid-template-rows: 200px 100px $half-width auto;
+    }
+}
+.logo{
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 200px;
+    @media only screen and(max-width:$vista-mobile){
+    width: 200px;
+    align-self: center;
+    }
+}
+header{
+    grid-area: header;
+    display: $flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media only screen and(max-width:$vista-mobile){
+    flex-direction: column;
+    justify-content: center;
+    }
+}
+img{width: 100%;height: auto;}
+section#titulo{
+    grid-area: titulo;
+}
+section#contenido{
+    grid-area: contenido;
+    display: $flex;
+    margin-bottom: 50px;
+    @media only screen and(max-width:$vista-mobile){
+    flex-direction: column;
+    margin-bottom: 0px;
+    }
+}
+footer{
+    grid-area:footer;
+    display: $flex;
+    justify-content: space-around;
+    padding-top: 30px;
+    background-color: rgba(255, 255, 0,0.5);
+    height: auto;
+    @media only screen and(max-width:$vista-mobile){
+    flex-direction: column;
+    }
+}
+
+nav{
+    ul{
+    display: $flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    @media only screen and(max-width:$vista-mobile){
+    justify-content: stretch; 
+    }
+        li{ 
+            padding:10px;
+            list-style: none;
+            font-size:$font-desktop;
+            a {
+                color:$verde;
+                &:hover {
+                    color:$azul;
+                }
+            }
+        }
+    }
+}
+
+h1{
+    font: {
+    size:$font-h-desktop;
+    family: $font-ubuntu;
+    }
+    text-align: center;
+    @media only screen and(max-width:$vista-mobile){
+        font-size:$font-h-mobile;
+    }
+}
+
+h3{
+    font: {
+        size:2rem;
+        family: $font-ubuntu;
+    }
+    text-align: center;
+    @media only screen and(max-width:$vista-mobile){
+        font-size:2rem;
+    }
+}
+
+p{
+    font: {
+        size:$font-desktop;
+        family: $font-ubuntu;
+    }
+    text-align: center;
+    @media only screen and(max-width:$vista-mobile){
+        font-size:$font-mobile;
+    }
+}
